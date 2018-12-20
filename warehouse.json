@@ -1,0 +1,99 @@
+{
+"warehouse":[
+                {
+                    "freezing warehouse":{
+                        "category":"freeze",
+                        "zone":"a2z",
+                        "row" :12,
+                        "colum" :3,
+                        "detail":"",
+                        "inventory name":"",
+                        "remainder":"",
+                        "available":""
+                    }
+                },
+                {
+                    "fresh warehouse":{
+                        "category":"fresh",
+                        "zone":"a2b",
+                        "row" :12,
+                        "colum" :3,
+                        "detail":"",
+                        "inventory name":"",
+                        "remainder":"",
+                        "available":""
+                    }
+                }
+            ],
+"inventory":[
+                {
+                    "salmon":{
+                        "detail":{
+                            "category":"fresh",
+                            "name":"salmon",
+                            "length":"10M",
+                            "width":"5M",
+                            "height":"2M",
+                            "weight":"20kg",
+                            "price":"baht",
+                            "company":""
+                        },
+                        "id":"",
+                        "name":"salmon",
+                        "warehousename":"fresh warehouse",
+                        "zone":"a",
+                        "row":1,
+                        "colum":3,
+                        "exp":"11/03/66"
+                    }
+                },{
+                    "apple":{
+                        "detail":{
+                            "category":"fresh",
+                            "name":"salmon",
+                            "length":"10M",
+                            "width":"5M",
+                            "height":"2M",
+                            "weight":"20kg",
+                            "price":"baht",
+                            "company":""
+                        },
+                        "id":"",
+                        "name":"salmon",
+                        "warehousename":"fresh warehouse",
+                        "zone":"a",
+                        "row":1,
+                        "colum":3,
+                        "exp":"11/03/66"
+                    }
+                }
+            ],
+"movementRec":[
+                {
+                    "recieve":[
+                        {
+                            "inventoryname":"fresh",
+                            "wavehousename":"fresh warehouse",
+                            "zone":"a",
+                            "row":1,
+                            "colum":3,
+                            "amount":10,
+                            "datetime":"32/13/9999"
+                        }
+                    ]
+        },
+        {
+                "export":[
+                {
+                    "inventoryname":"fresh",
+                    "wavehousename":"fresh warehouse",
+                    "zone":"a",
+                    "row":1,
+                    "colum":3,
+                    "amount":10,
+                    "datetime":"32/13/9999"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WMS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  /* Note: Try to remove the following lines to see the effect of CSS positioning */
+  .affix {
+      top: 20px;
+      z-index: 9999 !important;
+  }
+  </style>
+</head>
+<body>
+
+    <div class="container-fluid jumbotron" style="background-color:#2196F3;color:#fff;height:200px;">
+    <h1>WAREHOUSE</h1>
+    </div>
+    <br>
+
+    <div class="container-fluid" style="padding-right:50px; padding-top:10px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <nav>
+                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+                    <li><a href="index.html">INVENTORY IN WAREHOUSE</a></li>
+                    <li class="active"><a href="receipt.html">INVENTORY RECEIPT</a></li>
+                    <li><a href="export.html">INVENTORY EXPORT</a></li>
+                    <li><a href="detailW.html">ADD WAREHOUSE</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="jumbotron">
+                <h1>RECEIPT</h1>      
+            </div>
+            <br>
+            
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="receipt.html">Inventory receipt</a></li>
+                <li><a href="inbound.html">Record of inbound</a></li>
+            </ul>
+            <br>
+            
+            <div class="col-xs-10 input-group">
+                <label for="sel1">Inventory:</label>
+                <input class="form-control" id="Inventory" type="text"  placeholder="Enter Inventory Name" value="orange">
+            </div>
+            <br>
+            <div class="col-xs-12" align="center" onclick="warehouse1()" id="but">
+                <button type="button" class="btn btn-success btn-lg">receipt</button>
+            </div>
+            <div id="detail" style="padding-top:20px; display:none;" >
+                <div class="col-xs-6">
+                    <div class="col-xs-10 input-group">
+                        <label for="sel1">LENGTH:</label>
+                        <input class="form-control" id="LENGTH" type="text"  placeholder="metres" value="0.5">
+                    </div>
+                    <br>
+                    <div class="col-xs-10 input-group">
+                        <label for="sel1">Width:</label>
+                        <input class="form-control" id="Width" type="text"  placeholder="metres" value="0.5">
+                    </div>
+                    <br>
+                    <div class="col-xs-10 input-group">
+                        <label for="sel1">Height:</label>
+                        <input class="form-control" id="Height" type="text"  placeholder="metres" value="0.4">
+                    </div>
+                    <br>
+                    <div class="col-xs-10 input-group">
+                        <label for="sel1">Weight:</label>
+                        <input class="form-control" id="Weight" type="text"  placeholder="kilogram" value="3">
+                    </div>
+                    <br>
+                </div>
+                <div class="col-xs-6">
+                    <div class="col-xs-10 input-group">
+                        <label for="sel1">Category:</label>
+                        <input class="form-control" id="Category" type="text"  placeholder="Enter Category" value="fresh">
+                    </div>
+                    <br>
+                    <div class="col-xs-10 input-group">
+                        <label for="sel1">Cost price:</label>
+                        <input class="form-control" id="Cost price" type="text"  placeholder="baht" value="1000">
+                    </div>
+                    <br>
+                    <div class="col-xs-10 input-group">
+                        <label for="sel1">Company:</label>
+                        <input class="form-control" id="Company" type="text"  placeholder="Enter Company Name" value="fruits Land Company">
+                    </div>
+                    <br>
+                    <div class="col-xs-10 input-group">
+                        <label for="sel1">Exp.:</label>
+                        <input class="form-control" id="Exp" type="text"  placeholder="00/00/0000" value="14/01/2019">
+                    </div>
+                    <br>
+                    <div class="col-xs-10 input-group">
+                        <label for="sel1">Amount:</label>
+                        <input class="form-control" id="Amount" type="text"  placeholder="Enter Amount of Inventory" value="3">
+                    </div>
+                </div>
+                <div class="col-xs-12" align="center" style="padding-top:60px;" onclick="warehouse()">
+                    <button type="button" class="btn btn-success btn-lg">Success</button>
+                </div>
+            </div>
+            <div id="add" style="display:none;" >
+                <div class="col-xs-3 input-group" >
+                        <input class="form-control col-xs-6" id="myInput" type="text" value="451216354453">
+                        <input class="form-control col-xs-6" id="myInput2" type="text" style="display:none;" value="451216354458">
+                </div>
+                <div class="col-xs-1" style="padding-top:10px;">
+                    <button type="button" id="myBtn" class="glyphicon glyphicon-plus btn" onclick="enter()"></button>
+                </div>
+                
+                <div class="col-xs-12" align="center" style="padding-top:60px;" onclick="warehouse2()">
+                    <button type="button" class="btn btn-success btn-lg">Success</button>
+                </div>
+            </div>
+
+            <div class="alert alert-success" id="suc" style="display:none;" >
+                <strong>Receipt Success!</strong>
+                <br>
+                <table class="table table-bordered table-striped" class="col-sm-12">
+                        <thead>
+                            <tr>
+                                <!-- <th>INVENTORY</th> -->
+                                <th>WAREHOUSE</th>
+                                <th>ZONE</th>
+                                <th>ROW</th>
+                                <th>COLUMN</th>
+                                <th>REMAINDER</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTable">
+                            <tr align="center">
+                                <!-- <td class="col-sm-2"><a href="Detail.html">Pillow</a></td> -->
+                                <td class="col-sm-1">w1</td>
+                                <td class="col-sm-1">B</td>
+                                <td class="col-sm-1">1</td>
+                                <td class="col-sm-1">1</td>
+                                <td class="col-sm-1">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+            
+            
+        </div>
+        
+    </div>
+    </div>
+
+    <script>
+        var input = document.getElementById("myInput");
+        input.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("myBtn").click();
+            }
+        });
+        function enter(){
+            let table = document.querySelector("#myInput2");
+            table.style = " ";
+            console.log(table.style.display);
+
+        }
+
+        function warehouse(){
+            let table = document.querySelector("#detail");
+            let ad = document.querySelector("#add");
+            table.style = "display:none;";
+            ad.style = "padding-top:40px;";
+            console.log(table.style.display);
+        }
+        function warehouse1(){
+            let table = document.querySelector("#detail");
+            let bt = document.querySelector("#but");
+            table.style = "padding-top:20px";
+            bt.style = "display:none;";
+            console.log(table.style.display);
+        }
+        function warehouse2(){
+            let su = document.querySelector("#suc");
+            let ad = document.querySelector("#add");
+            ad.style = "display:none;";
+            su.style = "padding-top:20px";
+            console.log(table.style.display);
+        }
+        // $(document).ready(function(){
+        // $("#myInput").on("keyup", function() {
+        //     var value = $(this).val().toLowerCase();
+        //     $("#myTable tr").filter(function() {
+        //     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        //     });
+        // });
+        // });
+    </script>
+</body>
+</html>

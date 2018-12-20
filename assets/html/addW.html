@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WMS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  /* Note: Try to remove the following lines to see the effect of CSS positioning */
+  .affix {
+      top: 20px;
+      z-index: 9999 !important;
+  }
+  </style>
+</head>
+<body>
+
+    <div class="container-fluid jumbotron" style="background-color:#2196F3;color:#fff;height:200px;">
+    <h1>WAREHOUSE</h1>
+    </div>
+    <br>
+
+    <div class="container-fluid" style="padding-right:50px; padding-top:10px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <nav>
+                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+                    <li><a href="index.html">INVENTORY IN WAREHOUSE</a></li>
+                    <li><a href="receipt.html">INVENTORY RECEIPT</a></li>
+                    <li><a href="export.html">INVENTORY EXPORT</a></li>
+                    <li class="active"><a href="detailW.html">ADD WAREHOUSE</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="jumbotron">
+                <h1>WAREHOUSE</h1>      
+            </div>
+            <ul class="nav nav-tabs">
+                <li><a href="detailW.html">Detail of Warehouse</a></li>
+                <li class="active"><a href="addW.html">Add Warehouse</a></li>
+            </ul>
+            <div style="padding:50px;" id="detailAddW">
+                <div class=" input-group col-xs-6">
+                    <label for="sel1">Warehouse Name:</label>
+                    <input class="form-control" id="Wname" type="text"  placeholder="Enter Warehouse Name" value="W2">
+                </div>
+                <br>
+                <div class=" input-group col-xs-6">
+                    <label for="sel1">Detail of this warehouse:</label>
+                    <input class="form-control" id="detailW" type="text"  placeholder="Enter Detail of this Warehouse" value="W2">
+                </div>
+                <br>
+                <div class="input-group col-xs-6">
+                    <label for="sel1">Zone:</label>
+                    <p>zone A to ...</p>
+                    <input class="form-control" id="zone" type="text" value="F">
+                </div>
+                <br>
+                <div class="input-group col-xs-6">
+                    <label for="sel1">Row:</label>
+                    <p>How many row in this warehouse?</p>
+                    <input class="form-control" id="zone" type="text" value="5">
+                </div>
+                <br>
+                <div class="input-group col-xs-6">
+                    <label for="sel1">Column:</label>
+                    <p>How many column in this warehouse?</p>
+                    <input class="form-control" id="zone" type="text" value="6">
+                </div>
+                <div class="col-xs-12" align="center" style="padding-top:60px;" onclick="warehouse()">
+                    <button type="button" class="btn btn-success btn-lg">Add Warehouse</button>
+                </div>
+            </div>
+
+            <div class="alert alert-success" id="suc" style="display:none;">
+                    <strong>Add Warehouse Success!</strong>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
+        function warehouse(){
+            let table = document.querySelector("#detailAddW");
+            let ad = document.querySelector("#suc");
+            table.style = "display:none;";
+            ad.style = "padding-top:50px;";
+            console.log(table.style.display);
+        }
+    </script>
+</body>
+</html>

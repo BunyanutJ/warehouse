@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WMS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  /* Note: Try to remove the following lines to see the effect of CSS positioning */
+  .affix {
+      top: 20px;
+      z-index: 9999 !important;
+  }
+  </style>
+</head>
+<body>
+
+    <div class="container-fluid jumbotron" style="background-color:#2196F3;color:#fff;height:200px;">
+    <h1>WAREHOUSE</h1>
+    </div>
+    <br>
+
+    <div class="container-fluid" style="padding-right:50px; padding-top:10px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <nav>
+                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+                    <li  class="active"><a href="index.html">INVENTORY IN WAREHOUSE</a></li>
+                    <li><a href="receipt.html">INVENTORY RECEIPT</a></li>
+                    <li><a href="export.html">INVENTORY EXPORT</a></li>
+                    <li><a href="detailW.html">ADD WAREHOUSE</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-sm-9" >
+            <div class="well col-sm-12">
+                <div class="col-sm-4" align="center">
+                    <h1>Fish</h1>
+                </div>
+                <div class="col-sm-8">
+                    <table class="table">
+                        <tbody align="left">
+                            <tr>
+                                <td class="col-sm-4">CATEGORY</td>
+                                <td class="col-sm-8">Frozen</td>
+                            </tr>
+                            <tr>
+                                <td>LENGTH</td>
+                                <td>0.5 m.</td>
+                            </tr>
+                            <tr>
+                                <td>WIDTH</td>
+                                <td>0.5 m.</td>
+                            </tr>
+                            <tr>
+                                <td>HEIGHT</td>
+                                <td>0.4 m.</td>
+                            </tr>
+                            <tr>
+                                <td>WEIGHT</td>
+                                <td>3 kg.</td>
+                            </tr>
+                            <tr>
+                                <td>COST PRICE</td>
+                                <td>1000 baht</td>
+                            </tr>
+                            <tr>
+                                <td>COMPANY</td>
+                                <td>Fish Land Company</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="padding:50px;" >
+                <table class="table table-bordered table-striped" class="col-sm-12">
+                    <thead>
+                        <tr>
+                            <!-- <th>INVENTORY</th> -->
+                            <th>WAREHOUSE</th>
+                            <th>ZONE</th>
+                            <th>ROW</th>
+                            <th>COLUMN</th>
+                            <th>REMAINDER</th>
+                            <th>AVAILABLE</th>
+                            <th>EXP.</th>
+                            <th>INVENTORY ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr align="center">
+                            <!-- <td class="col-sm-2"><a href="Detail.html">Pillow</a></td> -->
+                            <td class="col-sm-1">w1</td>
+                            <td class="col-sm-1">A</td>
+                            <td class="col-sm-1">1</td>
+                            <td class="col-sm-1">1</td>
+                            <td class="col-sm-1">6</td>
+                            <td class="col-sm-1">0</td>
+                            <td class="col-sm-1">5/01/2019</td>
+                            <td class="col-sm-1">
+                                <button type="button" class="btn glyphicon glyphicon-chevron-down" id="unshow" onclick="show()"></button>
+                                <div style="display:none;" id="show">
+                                    <p>8456486532</p>
+                                    <p>8456486533</p>
+                                    <p>8456486534</p>
+                                    <p>8456486535</p>
+                                    <p>8456486536</p>
+                                    <p>8456486537</p>
+                                    <button type="button" class="btn glyphicon glyphicon-chevron-up" onclick="unshow()"></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <!-- <td><a href="Detail.html">Apple</a></td> -->
+                            <td>w1</td>
+                            <td>A</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>8/01/2019</td>
+                            <td class="col-sm-1">
+                                <button type="button" class="btn glyphicon glyphicon-chevron-down"></button>
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <!-- <td><a href="Detail.html">Fish</a></td> -->
+                            <td>w1</td>
+                            <td>A</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>10/01/2019</td>
+                            <td class="col-sm-1">
+                                <button type="button" class="btn glyphicon glyphicon-chevron-down"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function show(){
+            let unshow = document.querySelector("#unshow");
+            let show = document.querySelector("#show");
+            unshow.style = "display:none;";
+            show.style = " ";
+            console.log(table.style.display);
+        }
+        function unshow(){
+            let unshow = document.querySelector("#show");
+            let show = document.querySelector("#unshow");
+            unshow.style = "display:none;";
+            show.style = " ";
+            console.log(table.style.display);
+        }
+    
+    </script>
+
+</body>
+</html>

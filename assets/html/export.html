@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WMS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  /* Note: Try to remove the following lines to see the effect of CSS positioning */
+  .affix {
+      top: 20px;
+      z-index: 9999 !important;
+  }
+  </style>
+</head>
+<body>
+
+    <div class="container-fluid jumbotron" style="background-color:#2196F3;color:#fff;height:200px;">
+    <h1>WAREHOUSE</h1>
+    </div>
+    <br>
+
+    <div class="container-fluid" style="padding-right:50px; padding-top:10px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <nav>
+                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+                    <li><a href="index.html">INVENTORY IN WAREHOUSE</a></li>
+                    <li><a href="receipt.html">INVENTORY RECEIPT</a></li>
+                    <li class="active"><a href="export.html">INVENTORY EXPORT</a></li>
+                    <li><a href="detailW.html">ADD WAREHOUSE</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="jumbotron">
+                <h1>EXPORT</h1>      
+            </div>
+            <br>
+            
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="export.html">Inventory export</a></li>
+                <li><a href="outbound.html">Record of outbound</a></li>
+            </ul>
+            <br>
+            <div class="col-xs-4 input-group">
+                <label for="sel1">Inventory:</label>
+                <input class="form-control" id="Inventory" type="text"  placeholder="Enter Inventory Name" value="Fish">
+            </div>
+            <br>
+            <div class="col-xs-4 input-group">
+                <label for="sel1">Amount:</label>
+                <input class="form-control" id="Inventory" type="text"  placeholder="Enter Inventory Name" value="6">
+            </div>
+            <div class="col-xs-12" align="center" style="padding-top:20px;" onclick="export1()" id="btExport">
+                <button type="button" class="btn btn-success btn-lg">export</button>
+            </div>
+            <br>
+            <div style="display:none;"  id="add" >
+                <table class="table table-bordered table-striped" class="col-sm-12">
+                    <thead>
+                        <tr>
+                            <!-- <th>INVENTORY</th> -->
+                            <th>INVENTORY</th>
+                            <th>WAREHOUSE</th>
+                            <th>ZONE</th>
+                            <th>ROW</th>
+                            <th>COLUMN</th>
+                            <th>REMAINDER</th>
+                            <th>EXP.</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr align="center">
+                            <td class="col-sm-1">Fish</td>
+                            <td class="col-sm-1">w1</td>
+                            <td class="col-sm-1">A</td>
+                            <td class="col-sm-1">1</td>
+                            <td class="col-sm-1">1</td>
+                            <td class="col-sm-1">3</td>
+                            <td class="col-sm-1">5/01/2019</td>
+                        </tr>
+                        <tr align="center">
+                            <td class="col-sm-1">Fish</td>
+                            <td>w1</td>
+                            <td>A</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>8/01/2019</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <p>Inventory ID</p>
+                    <div class="col-xs-3 input-group" >
+                            <input class="form-control col-xs-6" id="myInput" type="text" value="451216354453">
+                            <input class="form-control col-xs-6" id="myInput2" type="text" value="451216354454">
+                            <input class="form-control col-xs-6" id="myInput2" type="text" value="451216354455">
+                            <input class="form-control col-xs-6" id="myInput2" type="text" value="451216354456">
+                            <input class="form-control col-xs-6" id="myInput2" type="text" value="451216354457">
+                            <input class="form-control col-xs-6" id="myInput2" type="text" value="451216354458">
+                    </div>
+                    <div class="col-xs-1" style="padding-top:10px;">
+                        <button type="button" id="myBtn" class="glyphicon glyphicon-plus btn" onclick="enter()"></button>
+                    </div>
+                    
+                    <div class="col-xs-12" align="center" style="padding-top:60px;" onclick="warehouse2()">
+                        <button type="button" class="btn btn-success btn-lg">Success</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="alert alert-success" id="suc" style="display:none;" >
+                <strong>Success!</strong>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+
+    <script>
+        var input = document.getElementById("myInput");
+        input.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("myBtn").click();
+            }
+        });
+        function enter(){
+            let table = document.querySelector("#myInput2");
+            table.style = " ";
+            console.log(table.style.display);
+
+        }
+        function warehouse2(){
+            let su = document.querySelector("#suc");
+            let ad = document.querySelector("#add");
+            ad.style = "display:none;";
+            su.style = "padding-top:20px";
+            console.log(table.style.display);
+        }
+        function export1(){
+            let su = document.querySelector("#btExport");
+            let ad = document.querySelector("#add");
+            ad.style = "padding-top:20px";
+            su.style = "display:none;";
+            console.log(table.style.display);
+        }
+    </script>
+</body>
+</html>
